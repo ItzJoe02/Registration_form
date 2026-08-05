@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="register.css" />
+  <link rel="stylesheet" href="base.css" />
+</head>
+<body>
+
+<div class="mesh-bg" aria-hidden="true">
+  <span class="blob-1"></span>
+  <span class="blob-2"></span>
+  <span class="blob-3"></span>
+  <div class="grid-overlay"></div>
+</div>
+
+<main class="page">
+  <div class="wrap">
+    <div class="header">
+      <span class="eyebrow">Student Registration</span>
+      <h1>Create your student record</h1>
+      <p>Fill in your details below — it takes less than two minutes.</p>
+    </div>
+
+    <div class="glass-card card">
+      <form id="regForm" class="form-grid" novalidate>
+
+        <div class="field">
+          <label for="fullName">Full name<span class="req">*</span></label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="e.g. Arun Prakash" required />
+          <span class="error-msg">Please enter your full name.</span>
+        </div>
+
+        <div class="field half">
+          <label for="studentId">Student ID<span class="req">*</span></label>
+          <input type="text" id="studentId" name="studentId" placeholder="e.g. CSE2026014" required />
+          <span class="error-msg">Please enter your student / roll number.</span>
+        </div>
+
+        <div class="field half">
+          <label for="dob">Date of birth<span class="req">*</span></label>
+          <input type="date" id="dob" name="dob" required />
+          <span class="error-msg">Please select your date of birth.</span>
+        </div>
+
+        <div class="field half">
+          <label for="email">Email address<span class="req">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@college.edu" required />
+          <span class="error-msg">Please enter a valid email address.</span>
+        </div>
+
+        <div class="field half">
+          <label for="phone">Phone number<span class="req">*</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="10-digit mobile number" required />
+          <span class="error-msg">Please enter a valid phone number.</span>
+        </div>
+
+        <div class="field half">
+          <label for="department">Department<span class="req">*</span></label>
+          <select id="department" name="department" required>
+            <option value="" disabled selected>Select department</option>
+            <option>Computer Science & Engineering</option>
+            <option>Electronics & Communication</option>
+            <option>Electrical & Electronics</option>
+            <option>Mechanical Engineering</option>
+            <option>Civil Engineering</option>
+            <option>Information Technology</option>
+            <option>Other</option>
+          </select>
+          <span class="error-msg">Please select your department.</span>
+        </div>
+
+        <div class="field half">
+          <label for="year">Year of study<span class="req">*</span></label>
+          <select id="year" name="year" required>
+            <option value="" disabled selected>Select year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+          </select>
+          <span class="error-msg">Please select your year of study.</span>
+        </div>
+
+        <div class="field">
+          <label for="address">Address <span class="text-muted" style="font-weight:400;">(optional)</span></label>
+          <textarea id="address" name="address" placeholder="Hostel / home address"></textarea>
+        </div>
+
+        <div class="form-footer">
+          <span class="hint">Fields marked <span style="color:var(--accent-pink)">*</span> are required</span>
+          <button type="submit" class="btn btn-primary" id="submitBtn">Submit registration</button>
+        </div>
+      </form>
+
+      <div class="success-screen" id="successScreen">
+        <div class="check-orbit">
+          <svg viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="checkGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#7c5cff" />
+                <stop offset="100%" stop-color="#22d3ee" />
+              </linearGradient>
+            </defs>
+            <circle class="ring" cx="50" cy="50" r="45" />
+            <path class="tick" d="M30 52 L44 66 L70 36" />
+          </svg>
+          <span class="particle" style="--tx:-40px; --ty:-30px;"></span>
+          <span class="particle" style="--tx:40px; --ty:-30px;"></span>
+          <span class="particle" style="--tx:-40px; --ty:30px;"></span>
+          <span class="particle" style="--tx:40px; --ty:30px;"></span>
+          <span class="particle" style="--tx:0px; --ty:-50px;"></span>
+          <span class="particle" style="--tx:0px; --ty:50px;"></span>
+        </div>
+        <h2>You're registered!</h2>
+        <p>Your details have been saved successfully.</p>
+        <div class="success-id" id="successId">ID: —</div>
+        <br />
+        <button class="btn btn-ghost" id="registerAnother">Register another student</button>
+      </div>
+    </div>
+
+    <p class="footer-note">Admin? <a href="admin.html">Go to admin dashboard →</a></p>
+  </div>
+</main>
+
+<script src="register.js"></script>
+</body>
+</html>
