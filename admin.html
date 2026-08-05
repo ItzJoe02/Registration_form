@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard — Student Registrations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="base.css" />
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<div class="mesh-bg" aria-hidden="true">
+  <span class="blob-1"></span>
+  <span class="blob-2"></span>
+  <span class="blob-3"></span>
+  <div class="grid-overlay"></div>
+</div>
+
+<main class="page">
+
+  <!-- LOGIN GATE -->
+  <section class="login-gate" id="loginGate">
+    <div class="glass-card login-card">
+      <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="4" y="10" width="16" height="10" rx="2"/>
+        <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+      </svg>
+      <h1>Admin access</h1>
+      <p>Enter the admin password to view student registrations.</p>
+      <input type="password" id="adminPassword" placeholder="Password" autocomplete="off" />
+      <div class="login-error" id="loginError"></div>
+      <button class="btn btn-primary" id="loginBtn">Unlock dashboard</button>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="dashboard" id="dashboard">
+    <div class="dash-header">
+      <div>
+        <span class="eyebrow">Admin Dashboard</span>
+        <h1>Student registrations</h1>
+      </div>
+      <div class="dash-actions">
+        <button class="btn btn-ghost" id="exportJsonBtn">Export JSON</button>
+        <button class="btn btn-ghost" id="exportCsvBtn">Export CSV</button>
+        <button class="btn btn-ghost" id="logoutBtn">Log out</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="glass-card stat-card">
+        <div class="num" id="statTotal">0</div>
+        <div class="label">Total registrations</div>
+      </div>
+      <div class="glass-card stat-card">
+        <div class="num" id="statToday">0</div>
+        <div class="label">Registered today</div>
+      </div>
+      <div class="glass-card stat-card">
+        <div class="num" id="statDepts">0</div>
+        <div class="label">Departments represented</div>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="searchInput" placeholder="Search by name, ID, or email..." />
+      <select id="deptFilter">
+        <option value="">All departments</option>
+      </select>
+    </div>
+
+    <div class="glass-card table-card">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Full name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Department</th>
+            <th>Year</th>
+            <th>DOB</th>
+            <th>Registered</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <h3>No registrations yet</h3>
+        <p>Once students submit the registration form, they'll show up here.</p>
+      </div>
+    </div>
+    <p class="text-muted" style="font-size:0.78rem; margin-top:16px;">
+      Tip: click any cell (except Student ID) to edit it directly. Changes save automatically.
+    </p>
+  </section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
